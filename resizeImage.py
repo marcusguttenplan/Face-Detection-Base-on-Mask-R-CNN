@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import os
 import json
-dir = "f:/wider_face_split/wider_face_train"
+dir = "~/wider_face_split/wider_face_train"
 
 for filelist in os.walk(dir):
     for file_dir in filelist[1]:

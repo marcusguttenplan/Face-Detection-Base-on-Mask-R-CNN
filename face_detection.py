@@ -81,11 +81,11 @@ def train(model):
     """
     print("start ready for train_set..")
     dataset_train = FaceDataSet()
-    dataset_train.load_face("F:/wider_face_split/wider_face_train")
+    dataset_train.load_face("~/wider_face_split/wider_face_train")
     dataset_train.prepare()
     print("start ready for val_set")
     dataset_val = FaceDataSet()
-    dataset_val.load_face("F:/wider_face_split/wider_face_val")
+    dataset_val.load_face("~/wider_face_split/wider_face_val")
     dataset_val.prepare()
 
     #model.train(dataset_train, dataset_val, learning_rate=config.LEARNING_RATE, epochs=30, layers='heads')
@@ -111,8 +111,8 @@ if __name__ == '__main__':
         config = InferenceConfig()
     config.display()
     if args.command == "train":
-        model = modellib.MaskRCNN(mode="training", config=config, model_dir='F:/model_dir')
+        model = modellib.MaskRCNN(mode="training", config=config, model_dir='./model_dir')
         model.load_weights(model.find_last()[1], by_name=True)
         train(model)
     else:
-        model = modellib.MaskRCNN(mode="inference", config=config, model_dir='F:/model_dir')
+        model = modellib.MaskRCNN(mode="inference", config=config, model_dir='./model_dir')
